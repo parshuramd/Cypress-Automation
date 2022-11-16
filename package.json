@@ -18,6 +18,14 @@
   },
   "homepage": "https://github.com/parshuramd/Cypress-Automation#readme",
   "dependencies": {
-    "cypress": "^11.1.0"
+    "cypress": "^11.1.0",
+    "cypress-mochawesome-reporter": "^3.2.3"
+  },
+  "devDependencies": {
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definations"
   }
 }
