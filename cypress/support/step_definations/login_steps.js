@@ -14,5 +14,6 @@ And("I click login",()=>{
     cy.get('[type="submit"]').click()
 })
 Then("I should login in successfully",()=>{
+    
     cy.get("div.content-header > h1").should("contain","Dashboard")
 })
