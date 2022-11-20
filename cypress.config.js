@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 const cucumber = require('cypress-cucumber-preprocessor').default
 module.exports = defineConfig({
   chromeWebSecurity:false,
-  
+  defaultCommandTimeout:15000,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
