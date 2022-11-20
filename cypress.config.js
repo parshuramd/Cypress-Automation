@@ -1,6 +1,8 @@
 const { defineConfig } = require("cypress");
 const cucumber = require('cypress-cucumber-preprocessor').default
 module.exports = defineConfig({
+  chromeWebSecurity:false,
+  
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
@@ -10,6 +12,7 @@ module.exports = defineConfig({
     saveAllAttempts: false,
   },
   e2e: {
+    experimentalSessionAndOrigin: true,
     specPattern : "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
     setupNodeEvents(on, config) {
       // implement node event listeners here

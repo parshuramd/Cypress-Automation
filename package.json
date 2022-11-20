@@ -19,6 +19,7 @@
   "homepage": "https://github.com/parshuramd/Cypress-Automation#readme",
   "dependencies": {
     "cypress": "^11.1.0",
+    "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.2.3"
   },
   "devDependencies": {
