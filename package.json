@@ -4,7 +4,9 @@
   "description": "Creating Cypress Automation Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open:google": "cypress open --config-file cypress-google.config.js",
+    "cy:open:amazon": "cypress open --config-file cypress-amazon.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   },
   "homepage": "https://github.com/parshuramd/Cypress-Automation#readme",
   "dependencies": {
-    "cypress": "^11.1.0",
+    "cypress": "^12.0.2",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.2.3"
   },

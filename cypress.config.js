@@ -12,6 +12,7 @@ module.exports = defineConfig({
     saveAllAttempts: false,
   },
   e2e: {
+    baseUrl:"https://demoqa.com/",
     experimentalSessionAndOrigin: true,
     specPattern : "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
     setupNodeEvents(on, config) {

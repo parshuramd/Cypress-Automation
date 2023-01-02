@@ -5,7 +5,7 @@ describe("Test Suite",()=>{
     it("TC- Create Account",()=>{
         testPOM.createAccount();
     })
-    it("TC- Sig In",()=>{
+    it("TC- Sign In",()=>{
         cy.log(testPOM.generateEmail);
         cy.intercept("GET","/shop/api/posts?page=1").as("api")
         cy.visit("https://qatest.commentsoldrt.com/webstore-login?destination=/account")
@@ -24,8 +24,10 @@ describe("Test Suite",()=>{
         cy.get('.zip-code > .default-input').type("41550")
         cy.get('#save-button').click()
         cy.get('#credit-card').check()
+        //Handled Iframe here
         cy.get('[title="Secure card payment input frame"]').then(function(el){
             let body = el[0].contentDocument.body
+            // let body = el[0].("body")
             cy.wrap(body).as("sunil")
             cy.get("@sunil").find('[name="cardnumber"]').type("4242 4242 4242 4242")
             cy.get("@sunil").find('[name="exp-date"]').type("03 34");
@@ -33,5 +35,24 @@ describe("Test Suite",()=>{
             cy.get("@sunil").find('[name="postal"]').type("41550");
             cy.get('#stripe-button').click();
         })
+        cy.get('._cta-button').click()
+        // cy.get('[title="Secure card payment input frame"]').its("0.contentDocument.body").then((body)=>{
+        //     cy.wrap(body).as("sunil")
+        //     cy.get("@sunil").find('[name="cardnumber"]').type("4242 4242 4242 4242")
+        //     cy.get("@sunil").find('[name="exp-date"]').type("03 34");
+        //     cy.get("@sunil").find('[name="cvc"]').type("111");
+        //     cy.get("@sunil").find('[name="postal"]').type("41550");
+        //     cy.get('#stripe-button').click();
+        // })
+        // cy.frameLoaded('[title="Secure card payment input frame"]')
+    
+    
+        // cy.iframe('[title="Secure card payment input frame"]').find('[name="cardnumber"]').type("4242 4242 4242 4242")
+
+        // cy.get('[title="Secure card payment input frame"]').then((el)=>{
+        //     cy.wrap(el[0].contentDocument.body).as("sunil")
+        //     cy.get("@sunil").find('[name="cardnumber"]').type("4242 4242 4242 4242")
+        // })
     })
+
 })
