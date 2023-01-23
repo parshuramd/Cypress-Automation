@@ -8,11 +8,30 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
-import 'cypress-iframe';
+import "cypress-iframe";
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
+Cypress.Commands.add(
+  "typeAndSelect",
+  (
+    selector,
+    typeValue,
+    selectValue,
+    forceSelect = {},
+    exactMatched = false
+  ) => {
+    cy.get(selector).should("exist");
+    cy.get(selector).clear().type(typeValue);
+    if (exactMatched) {
+      cy.get("li div")
+        .contains(new RegExp("^" + selectValue + "$", "g"))
+        .click();
+    } else {
+      cy.get("li div").contains(selectValue, { matchCase: false }).click();
+    }
+  }
+);
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

@@ -4,7 +4,7 @@
   "description": "Creating Cypress Automation Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress run",
     "cy:open:google": "cypress open --config-file cypress-google.config.js",
     "cy:open:amazon": "cypress open --config-file cypress-amazon.config.js"
   },
@@ -22,7 +22,9 @@
   "dependencies": {
     "cypress": "^12.0.2",
     "cypress-iframe": "^1.0.1",
-    "cypress-mochawesome-reporter": "^3.2.3"
+    "cypress-localstorage-commands": "^2.2.2",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-real-events": "^1.7.6"
   },
   "devDependencies": {
     "cypress-cucumber-preprocessor": "^4.3.1"
